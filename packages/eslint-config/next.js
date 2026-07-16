@@ -10,6 +10,7 @@ export default [
       globals: {
         Request: 'readonly',
         Response: 'readonly',
+        URL: 'readonly',
         fetch: 'readonly',
         process: 'readonly'
       }
