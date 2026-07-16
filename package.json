@@ -18,6 +18,10 @@
   "devDependencies": {
     "@tech-brief-ai/eslint-config": "*",
     "@tech-brief-ai/typescript-config": "*",
+    "metro": "0.81.5",
+    "metro-cache": "0.81.5",
+    "metro-config": "0.81.5",
+    "metro-transform-worker": "0.81.5",
     "prettier": "^3.3.3",
     "turbo": "^2.0.11",
     "typescript": "^5.5.4"
