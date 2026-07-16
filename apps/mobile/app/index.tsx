@@ -13,7 +13,7 @@ export default function IndexScreen() {
     );
   }
 
-  return <Redirect href={isSignedIn ? '/onboarding' : '/sign-in'} />;
+  return <Redirect href={isSignedIn ? '/(tabs)' : '/sign-in'} />;
 }
 
 const styles = StyleSheet.create({

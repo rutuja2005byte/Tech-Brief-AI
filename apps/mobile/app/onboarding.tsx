@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAuth } from '@clerk/clerk-expo';
 import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'expo-router';
 import { Controller, useForm } from 'react-hook-form';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 
@@ -15,6 +16,7 @@ const categoryOptions = briefCategorySchema.options;
 
 export default function OnboardingScreen() {
   const { getToken } = useAuth();
+  const router = useRouter();
   const form = useForm<OnboardingPreferencesInput>({
     resolver: zodResolver(onboardingPreferencesSchema),
     defaultValues: {
@@ -35,6 +37,9 @@ export default function OnboardingScreen() {
         values,
         { token },
       );
+    },
+    onSuccess() {
+      router.replace('/(tabs)');
     }
   });
 
