@@ -1,0 +1,25 @@
+{
+  "name": "@tech-brief-ai/validation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --emitDeclarationOnly",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tech-brief-ai/eslint-config": "*",
+    "@tech-brief-ai/typescript-config": "*",
+    "typescript": "^5.5.4"
+  }
+}

@@ -1,0 +1,1 @@
+export { default } from '@tech-brief-ai/eslint-config/react-native';

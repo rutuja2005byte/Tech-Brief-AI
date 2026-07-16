@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.expo
+.next
+.turbo
+coverage
+dist
+node_modules
+build
+ios
+android
+*.tsbuildinfo

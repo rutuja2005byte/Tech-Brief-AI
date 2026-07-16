@@ -1,0 +1,29 @@
+{
+  "name": "tech-brief-ai",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@10.8.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "clean": "turbo clean && rm -rf node_modules",
+    "dev": "turbo dev",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck"
+  },
+  "devDependencies": {
+    "@tech-brief-ai/eslint-config": "*",
+    "@tech-brief-ai/typescript-config": "*",
+    "prettier": "^3.3.3",
+    "turbo": "^2.0.11",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=20.11.0",
+    "npm": ">=10.0.0"
+  }
+}

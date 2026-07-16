@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Tech Brief AI",
+    "slug": "tech-brief-ai",
+    "scheme": "techbriefai",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0B0D12"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.techbriefai.mobile"
+    },
+    "android": {
+      "package": "com.techbriefai.mobile",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0B0D12"
+      }
+    },
+    "plugins": ["expo-router", "expo-secure-store", "expo-notifications"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

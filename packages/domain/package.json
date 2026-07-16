@@ -1,0 +1,22 @@
+{
+  "name": "@tech-brief-ai/domain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --emitDeclarationOnly",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@tech-brief-ai/eslint-config": "*",
+    "@tech-brief-ai/typescript-config": "*",
+    "typescript": "^5.5.4"
+  }
+}
