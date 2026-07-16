@@ -9,7 +9,8 @@ export default [
     languageOptions: {
       globals: {
         fetch: 'readonly',
-        process: 'readonly'
+        process: 'readonly',
+        require: 'readonly'
       }
     }
   }

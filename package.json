@@ -13,6 +13,7 @@
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
     "lint": "turbo lint",
+    "mobile:web": "npm --workspace @tech-brief-ai/mobile run web",
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
