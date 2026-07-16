@@ -6,6 +6,9 @@
   "scripts": {
     "build": "next build",
     "clean": "rm -rf .next",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
     "dev": "next dev --port 3000",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
@@ -22,6 +25,7 @@
     "inngest": "^3.22.0",
     "next": "^15.0.0",
     "posthog-node": "^4.1.0",
+    "postgres": "^3.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zod": "^3.23.8"
@@ -32,6 +36,7 @@
     "@types/node": "^20.14.12",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "drizzle-kit": "^0.23.1",
     "typescript": "^5.5.4"
   }
 }
