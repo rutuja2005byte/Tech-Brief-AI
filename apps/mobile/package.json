@@ -4,7 +4,7 @@
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
-    "build": "expo export --platform ios --platform android",
+    "build": "EXPO_ROUTER_APP_ROOT=app expo export --platform ios --platform android",
     "clean": "rm -rf .expo dist",
     "dev": "expo start",
     "lint": "eslint .",
