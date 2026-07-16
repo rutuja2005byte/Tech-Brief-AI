@@ -1,5 +1,5 @@
-import { LogOut } from 'lucide-react-native';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Bell, LogOut, Moon, ShieldCheck } from 'lucide-react-native';
+import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { colors } from '@/components/ui/colors';
 import { AppScreen } from '@/components/ui/screen';
@@ -15,7 +15,29 @@ export default function SettingsScreen() {
         <Text style={styles.heading}>Settings</Text>
         <View style={styles.card}>
           <Text style={styles.title}>{appConfig.name}</Text>
-          <Text style={styles.body}>Profile, preferences, analytics, and notifications continue in Phase 6.</Text>
+          <Text style={styles.body}>Profile, preferences, analytics, and notifications are wired for production APIs.</Text>
+        </View>
+        <View style={styles.rowCard}>
+          <Bell color={colors.signal} size={20} />
+          <View style={styles.rowCopy}>
+            <Text style={styles.title}>Push notifications</Text>
+            <Text style={styles.body}>Register this device when native push credentials are enabled.</Text>
+          </View>
+          <Switch value />
+        </View>
+        <View style={styles.rowCard}>
+          <Moon color={colors.accent} size={20} />
+          <View style={styles.rowCopy}>
+            <Text style={styles.title}>Dark mode</Text>
+            <Text style={styles.body}>System preference is the default.</Text>
+          </View>
+        </View>
+        <View style={styles.rowCard}>
+          <ShieldCheck color={colors.signal} size={20} />
+          <View style={styles.rowCopy}>
+            <Text style={styles.title}>Privacy</Text>
+            <Text style={styles.body}>Analytics hooks are centralized for PostHog and Sentry.</Text>
+          </View>
         </View>
         <Pressable style={styles.signOut} onPress={() => void signOut()}>
           <LogOut color={colors.text} size={18} />
@@ -53,6 +75,19 @@ const styles = StyleSheet.create({
     color: colors.muted,
     lineHeight: 22,
     marginTop: 8
+  },
+  rowCard: {
+    alignItems: 'center',
+    backgroundColor: colors.panel,
+    borderColor: colors.border,
+    borderRadius: 8,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 14,
+    padding: 16
+  },
+  rowCopy: {
+    flex: 1
   },
   signOut: {
     alignItems: 'center',

@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Bookmark, FileText, Home, Settings } from 'lucide-react-native';
+import { Bookmark, FileText, Home, MessageCircle, Search, Settings } from 'lucide-react-native';
 
 import { colors } from '@/components/ui/colors';
 
@@ -28,6 +28,20 @@ export default function TabsLayout() {
         options={{
           title: 'Brief',
           tabBarIcon: ({ color, size }) => <FileText color={color} size={size} />
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Search',
+          tabBarIcon: ({ color, size }) => <Search color={color} size={size} />
+        }}
+      />
+      <Tabs.Screen
+        name="chat"
+        options={{
+          title: 'Chat',
+          tabBarIcon: ({ color, size }) => <MessageCircle color={color} size={size} />
         }}
       />
       <Tabs.Screen
