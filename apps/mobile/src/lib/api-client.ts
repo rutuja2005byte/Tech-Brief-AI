@@ -24,3 +24,17 @@ export async function postJson<ResponseBody, RequestBody>(
 
   return (await response.json()) as ResponseBody;
 }
+
+export async function getJson<ResponseBody>(path: string, options: ApiClientOptions) {
+  const response = await fetch(`${mobileEnv.EXPO_PUBLIC_API_URL}${path}`, {
+    headers: {
+      ...(options.token ? { Authorization: `Bearer ${options.token}` } : {})
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error(`Request failed with status ${response.status}.`);
+  }
+
+  return (await response.json()) as ResponseBody;
+}
