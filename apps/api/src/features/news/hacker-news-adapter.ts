@@ -40,7 +40,7 @@ async function fetchJson<T>(url: string) {
   return (await response.json()) as T;
 }
 
-function toFetchedArticle(item: HackerNewsItem) {
+function toFetchedArticle(item: HackerNewsItem): FetchedArticle | null {
   if (!item.title || !item.url) {
     return null;
   }

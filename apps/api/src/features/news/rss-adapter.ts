@@ -18,7 +18,7 @@ export function createRssAdapter(feedUrl: string): SourceAdapter {
   };
 }
 
-function toFetchedArticle(item: Record<string, unknown>) {
+function toFetchedArticle(item: Record<string, unknown>): FetchedArticle | null {
   const link = getString(item.link) ?? getString(item.guid);
   const title = getString(item.title);
 
