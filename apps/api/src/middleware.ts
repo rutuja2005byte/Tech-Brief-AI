@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 
 const isProtectedRoute = createRouteMatcher([
   '/api/me(.*)',
+  '/api/briefs/generate(.*)',
   '/api/news/ingest(.*)',
   '/api/onboarding(.*)'
 ]);

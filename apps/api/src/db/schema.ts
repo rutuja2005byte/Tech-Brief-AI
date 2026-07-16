@@ -143,8 +143,10 @@ export const briefs = pgTable('briefs', {
   cadence: briefCadenceEnum('cadence').notNull(),
   title: text('title').notNull(),
   summary: text('summary').notNull(),
+  keyTakeaways: jsonb('key_takeaways').$type<readonly string[]>().default([]).notNull(),
   podcastScript: text('podcast_script'),
   audioPath: text('audio_path'),
+  model: text('model'),
   publishedAt: timestamp('published_at', { withTimezone: true }).notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull()
 });
