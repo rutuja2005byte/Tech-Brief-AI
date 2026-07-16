@@ -1,5 +1,6 @@
 import {
   boolean,
+  doublePrecision,
   index,
   integer,
   jsonb,
@@ -92,15 +93,34 @@ export const articles = pgTable(
     authorName: text('author_name'),
     imageUrl: text('image_url'),
     contentHash: text('content_hash').notNull(),
+    importanceScore: doublePrecision('importance_score').default(0).notNull(),
+    rawPayload: jsonb('raw_payload').$type<Record<string, unknown>>(),
     publishedAt: timestamp('published_at', { withTimezone: true }).notNull(),
     createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull()
   },
   (table) => ({
     contentHashIdx: uniqueIndex('articles_content_hash_idx').on(table.contentHash),
     urlIdx: uniqueIndex('articles_url_idx').on(table.url),
-    sourcePublishedAtIdx: index('articles_source_published_at_idx').on(
+    sourcePublishedAtIdx: index('articles_source_published_at_idx').on(table.sourceId, table.publishedAt)
+  })
+);
+
+export const ingestionRuns = pgTable(
+  'ingestion_runs',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    sourceId: uuid('source_id').references(() => newsSources.id, { onDelete: 'set null' }),
+    status: text('status').notNull(),
+    fetchedCount: integer('fetched_count').default(0).notNull(),
+    insertedCount: integer('inserted_count').default(0).notNull(),
+    errorMessage: text('error_message'),
+    startedAt: timestamp('started_at', { withTimezone: true }).defaultNow().notNull(),
+    completedAt: timestamp('completed_at', { withTimezone: true })
+  },
+  (table) => ({
+    sourceStartedAtIdx: index('ingestion_runs_source_started_at_idx').on(
       table.sourceId,
-      table.publishedAt
+      table.startedAt
     )
   })
 );
