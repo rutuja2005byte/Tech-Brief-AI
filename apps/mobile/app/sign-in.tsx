@@ -1,30 +1,26 @@
-import { useOAuth } from '@clerk/clerk-expo';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { useAppAuth } from '@/providers/auth-provider';
 import { appConfig } from '@tech-brief-ai/config';
 
 type OAuthStrategy = 'oauth_google' | 'oauth_github';
 
 export default function SignInScreen() {
   const router = useRouter();
-  const googleOAuth = useOAuth({ strategy: 'oauth_google' });
-  const githubOAuth = useOAuth({ strategy: 'oauth_github' });
+  const { signIn: signInWithDevProvider } = useAppAuth();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function signIn(strategy: OAuthStrategy) {
     try {
       setErrorMessage(null);
-      const oauth = strategy === 'oauth_google' ? googleOAuth : githubOAuth;
-      const result = await oauth.startOAuthFlow();
-
-      if (result.createdSessionId) {
-        await result.setActive?.({ session: result.createdSessionId });
-        router.replace('/onboarding');
-      }
+      await signInWithDevProvider();
+      router.replace('/onboarding');
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : 'Unable to sign in.');
+      setErrorMessage(
+        error instanceof Error ? error.message : `Unable to sign in with ${strategy}.`,
+      );
     }
   }
 

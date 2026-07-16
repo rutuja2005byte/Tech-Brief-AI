@@ -14,14 +14,16 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-native": "0.76.9"
+  "peerDependencies": {
+    "react": ">=18.3.1",
+    "react-native": ">=0.76.9"
   },
   "devDependencies": {
     "@tech-brief-ai/eslint-config": "*",
     "@tech-brief-ai/typescript-config": "*",
     "@types/react": "^18.3.3",
+    "react": "18.3.1",
+    "react-native": "0.76.9",
     "typescript": "^5.5.4"
   }
 }

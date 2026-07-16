@@ -24,7 +24,7 @@ export const serverEnvSchema = z.object({
 
 export const mobileEnvSchema = z.object({
   EXPO_PUBLIC_API_URL: z.string().url(),
-  EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),
+  EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().optional().default(''),
   EXPO_PUBLIC_POSTHOG_KEY: z.string().optional(),
   EXPO_PUBLIC_SENTRY_DSN: z.string().url().optional()
 });

@@ -1,11 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useAuth } from '@clerk/clerk-expo';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import { Controller, useForm } from 'react-hook-form';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { postJson } from '@/lib/api-client';
+import { useAppAuth } from '@/providers/auth-provider';
 import {
   type OnboardingPreferencesInput,
   briefCategorySchema,
@@ -15,7 +15,7 @@ import {
 const categoryOptions = briefCategorySchema.options;
 
 export default function OnboardingScreen() {
-  const { getToken } = useAuth();
+  const { getToken } = useAppAuth();
   const router = useRouter();
   const form = useForm<OnboardingPreferencesInput>({
     resolver: zodResolver(onboardingPreferencesSchema),
@@ -32,6 +32,11 @@ export default function OnboardingScreen() {
   const mutation = useMutation({
     async mutationFn(values: OnboardingPreferencesInput) {
       const token = await getToken();
+
+      if (!token) {
+        return { user: { id: 'expo-go-demo-user' } };
+      }
+
       return postJson<{ readonly user: { readonly id: string } }, OnboardingPreferencesInput>(
         '/api/onboarding',
         values,

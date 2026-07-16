@@ -1,13 +1,13 @@
-import { useAuth } from '@clerk/clerk-expo';
 import { LogOut } from 'lucide-react-native';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/components/ui/colors';
 import { AppScreen } from '@/components/ui/screen';
+import { useAppAuth } from '@/providers/auth-provider';
 import { appConfig } from '@tech-brief-ai/config';
 
 export default function SettingsScreen() {
-  const { signOut } = useAuth();
+  const { signOut } = useAppAuth();
 
   return (
     <AppScreen>

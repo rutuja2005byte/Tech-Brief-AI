@@ -1,9 +1,7 @@
-import { ClerkProvider } from '@clerk/clerk-expo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
 
-import { mobileEnv } from '@/lib/env';
-import { tokenCache } from '@/lib/token-cache';
+import { AuthProvider } from './auth-provider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,11 +14,8 @@ const queryClient = new QueryClient({
 
 export function AppProviders({ children }: { readonly children: ReactNode }) {
   return (
-    <ClerkProvider
-      publishableKey={mobileEnv.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
-      tokenCache={tokenCache}
-    >
+    <AuthProvider>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </ClerkProvider>
+    </AuthProvider>
   );
 }

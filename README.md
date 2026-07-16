@@ -17,9 +17,18 @@ Later phases will add database schema, authentication, news ingestion, AI proces
 ```bash
 npm install
 npm run dev
+npm run mobile
 npm run typecheck
 npm run lint
 ```
+
+For Expo Go, run the mobile workspace script from the repo root:
+
+```bash
+npm run mobile
+```
+
+Do not run `npx expo start` from the monorepo root; it starts the wrong project and looks for a root `App` file.
 
 ## Workspace Layout
 

@@ -1,9 +1,10 @@
-import { useAuth } from '@clerk/clerk-expo';
 import { Redirect } from 'expo-router';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
+import { useAppAuth } from '@/providers/auth-provider';
+
 export default function IndexScreen() {
-  const { isLoaded, isSignedIn } = useAuth();
+  const { isLoaded, isSignedIn } = useAppAuth();
 
   if (!isLoaded) {
     return (
