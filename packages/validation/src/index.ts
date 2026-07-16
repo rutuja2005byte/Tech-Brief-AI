@@ -17,7 +17,8 @@ export const onboardingPreferencesSchema = z.object({
   notificationHourLocal: z.number().int().min(0).max(23),
   podcastVoice: z.string().min(1),
   briefCadence: z.enum(['daily', 'weekly', 'monthly']),
-  darkMode: z.enum(['system', 'light', 'dark'])
+  darkMode: z.enum(['system', 'light', 'dark']),
+  pushNotificationsEnabled: z.boolean()
 });
 
 export type OnboardingPreferencesInput = z.infer<typeof onboardingPreferencesSchema>;

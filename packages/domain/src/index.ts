@@ -56,4 +56,5 @@ export interface UserPreferences {
   readonly podcastVoice: string;
   readonly briefCadence: BriefCadence;
   readonly darkMode: 'system' | 'light' | 'dark';
+  readonly pushNotificationsEnabled: boolean;
 }

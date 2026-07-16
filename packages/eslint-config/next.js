@@ -1,8 +1,18 @@
 import base from './index.js';
 
 export default [
+  {
+    ignores: ['.next/**', '**/*.d.ts']
+  },
   ...base,
   {
-    ignores: ['.next/**', 'next-env.d.ts']
+    languageOptions: {
+      globals: {
+        Request: 'readonly',
+        Response: 'readonly',
+        fetch: 'readonly',
+        process: 'readonly'
+      }
+    }
   }
 ];

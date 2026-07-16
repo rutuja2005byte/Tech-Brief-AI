@@ -1,8 +1,16 @@
 import base from './index.js';
 
 export default [
+  {
+    ignores: ['.expo/**', '**/*.d.ts', 'babel.config.js', 'dist/**', 'metro.config.js']
+  },
   ...base,
   {
-    ignores: ['.expo/**', 'babel.config.js', 'dist/**', 'metro.config.js']
+    languageOptions: {
+      globals: {
+        fetch: 'readonly',
+        process: 'readonly'
+      }
+    }
   }
 ];
