@@ -24,7 +24,7 @@
         "backgroundColor": "#0B0D12"
       }
     },
-    "plugins": ["expo-router", "expo-secure-store", "expo-notifications"],
+    "plugins": ["expo-router", "expo-secure-store"],
     "experiments": {
       "typedRoutes": true
     }
